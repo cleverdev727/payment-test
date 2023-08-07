@@ -20,4 +20,5 @@ Route::get('/', function() {
 
 Route::prefix('/api')->group(function() {
     Route::post('/create', [AppController::class, 'create'])->name('app.create');
+    Route::post('/check', [AppController::class, 'check'])->name('app.check');
 });

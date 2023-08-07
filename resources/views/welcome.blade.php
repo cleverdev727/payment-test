@@ -13,6 +13,8 @@
   </head>
   <body class="antialiased">
     <button class="p-2 bg-green-600 rounded-md" id="create">Create Order</button>
+    <button class="p-2 bg-green-600 rounded-md" id="check">Check Order</button>
+    <input id="id" class="border p-2 outline-none" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script>
       function csrf() {
@@ -26,6 +28,15 @@
       $('#create').click(function() {
         csrf();
         $.post('/api/create', function(res) {
+          console.log(res);
+        });
+      });
+      
+      $('#check').click(function() {
+        csrf();
+        $.post('/api/check', {
+          id: $('#id').val()
+        }, function(res) {
           console.log(res);
         });
       });
