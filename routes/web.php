@@ -18,4 +18,6 @@ Route::get('/', function() {
     return view ('welcome');
 });
 
-Route::post('/create', [AppController::class, 'create'])->name('app.create');
+Route::prefix('/api')->group(function() {
+    Route::post('/create', [AppController::class, 'create'])->name('app.create');
+});
